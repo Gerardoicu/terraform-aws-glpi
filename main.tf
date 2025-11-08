@@ -23,7 +23,7 @@ data "aws_ami" "al2023" {
 resource "aws_iam_role" "ec2_ssm_role" {
   name = "${var.project_name}-ec2-ssm-role"
   assume_role_policy = jsonencode({
-    Version   = "2012-10-17",
+    Version = "2012-10-17",
     Statement = [{
       Effect    = "Allow",
       Principal = { Service = "ec2.amazonaws.com" },
@@ -70,7 +70,7 @@ resource "aws_instance" "vm" {
   iam_instance_profile        = aws_iam_instance_profile.ec2_ssm_profile.name
   associate_public_ip_address = true
 
-  user_data                   = file(var.user_data_path)
+  user_data                   = file("${path.module}/${var.user_data_path}")
   user_data_replace_on_change = true
 
   tags = { Name = "${var.project_name}-server" }

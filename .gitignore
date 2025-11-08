@@ -12,6 +12,7 @@ override.tf
 override.tf.json
 
 # Variables locales y sensibles
+variables.tf
 terraform.tfvars
 terraform.tfvars.json
 *.tfvars
