@@ -1,0 +1,46 @@
+# ==== TERRAFORM ====
+# Directorios locales
+.terraform/
+.terraform.lock.hcl
+
+# Archivos de estado y respaldo
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+
+# Variables locales y sensibles
+terraform.tfvars
+terraform.tfvars.json
+*.tfvars
+*.tfvars.json
+
+# Archivos de salida temporales
+*.backup
+*.bak
+
+# ==== AWS / KEYS ====
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+
+# ==== USER DATA / SCRIPTS (mantén solo los ejemplos públicos) ====
+user_data/*.sh
+!user_data/helloworld.sh.example
+!user_data/glpi.sh.example
+
+# ==== IDE / SISTEMA ====
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
+Thumbs.db
+
+# ==== WINDOWS ====
+ehthumbs.db
+desktop.ini
