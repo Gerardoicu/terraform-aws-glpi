@@ -1,40 +1,40 @@
 # ==== TERRAFORM ====
-# Directorios locales
+# Local provider and plugin cache
 .terraform/
 .terraform.lock.hcl
 
-# Archivos de estado y respaldo
-terraform.tfstate
-terraform.tfstate.*
+# State and backup files
+*.tfstate
+*.tfstate.*
 crash.log
 crash.*.log
 override.tf
 override.tf.json
+*.backup
+*.bak
 
-# Variables locales y sensibles
-variables.tf
+# Sensitive variable files (never commit)
 terraform.tfvars
 terraform.tfvars.json
 *.tfvars
 *.tfvars.json
 
-# Archivos de salida temporales
-*.backup
-*.bak
+# Environment-specific configs
+live/**/main.tfvars
 
-# ==== AWS / KEYS ====
+# ==== AWS / CREDENTIALS ====
 *.pem
 *.key
 *.crt
 *.cer
 *.pfx
 
-# ==== USER DATA / SCRIPTS (mantén solo los ejemplos públicos) ====
+# ==== USER DATA / SCRIPTS ====
 user_data/*.sh
 !user_data/helloworld.sh.example
 !user_data/glpi.sh.example
 
-# ==== IDE / SISTEMA ====
+# ==== IDE / SYSTEM FILES ====
 .idea/
 .vscode/
 *.iml
