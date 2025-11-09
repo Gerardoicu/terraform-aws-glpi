@@ -6,9 +6,7 @@ resource "aws_ebs_volume" "data" {
   tags = {
     Name = "${var.name_prefix}-data"
   }
-  lifecycle {
-    prevent_destroy = true
-  }
+
 }
 
 resource "aws_volume_attachment" "attach" {
