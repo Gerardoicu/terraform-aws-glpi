@@ -43,6 +43,15 @@ module "ebs_data" {
   existing_volume_id = var.existing_volume_id
 }
 
+module "ssm_params" {
+  source      = "./modules/ssm-params"
+  path_prefix = "/glpi"
+
+  db_name     = var.glpi_db_name
+  db_user     = var.glpi_db_user
+  db_password = var.glpi_db_password
+  # kms_key_id = "arn:aws:kms:us-east-1:123456789012:key/..." # opcional
+}
 
 #  comprobar la persistencia los volumens
 # los dos escenarios de arquitectura

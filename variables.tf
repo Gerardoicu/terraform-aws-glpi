@@ -34,3 +34,15 @@ variable "device_name" {
   type    = string
   default = "/dev/xvdb"
 }
+variable "glpi_db_name" {
+  type = string
+}
+
+variable "glpi_db_user" {
+  type = string
+}
+
+variable "glpi_db_password" {
+  type      = string
+  sensitive = true
+}
