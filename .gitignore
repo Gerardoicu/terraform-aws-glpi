@@ -1,5 +1,4 @@
 # ==== TERRAFORM ====
-# Local provider and plugin cache
 .terraform/
 .terraform.lock.hcl
 
@@ -13,16 +12,16 @@ override.tf.json
 *.backup
 *.bak
 
-# Sensitive variable files (never commit)
+# Sensitive variable files (NEVER commit)
 terraform.tfvars
 terraform.tfvars.json
 *.tfvars
 *.tfvars.json
 
-# Environment-specific configs
+# Environment-specific configs (ignored per-env)
 live/**/main.tfvars
 
-# ==== AWS / CREDENTIALS ====
+# ==== AWS / SSH KEYS ====
 *.pem
 *.key
 *.crt
@@ -30,18 +29,23 @@ live/**/main.tfvars
 *.pfx
 
 # ==== USER DATA / SCRIPTS ====
-user_data/*.sh
-!user_data/helloworld.sh.example
-!user_data/glpi.sh.example
+# SE PERMITE versionar scripts, excepto uno opcional con secretos
+# (tu glpi.sh sí se debe versionar)
+user_data/*secret*.sh
 
-# ==== IDE / SYSTEM FILES ====
+# ==== LOGS (solo los peligrosos) ====
+# No ignores todos los .log globalmente
+# Solo los que pertenezcan al runtime de EC2/container
+*.runtime.log
+*.install.log
+
+# ==== IDE / EDITORS ====
 .idea/
 .vscode/
 *.iml
-*.log
+
+# ==== OS FILES ====
 .DS_Store
 Thumbs.db
-
-# ==== WINDOWS ====
 ehthumbs.db
 desktop.ini
