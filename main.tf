@@ -32,11 +32,15 @@ module "ec2" {
 }
 
 module "ebs_data" {
-  source            = "./modules/ebs-data"
-  name_prefix       = local.name_prefix
-  size_gb           = 10       # Capa Free Tier → total 30GB (20 root + 10 data)
-  instance_id       = module.ec2.instance_id
-  availability_zone = module.ec2.availability_zone
+  source             = "./modules/ebs-data"
+  name_prefix        = local.name_prefix
+  size_gb            = 10
+  instance_id        = module.ec2.instance_id
+  availability_zone  = module.ec2.availability_zone
+  device_name        = var.device_name
+
+  use_existing_ebs   = var.use_existing_ebs
+  existing_volume_id = var.existing_volume_id
 }
 
 

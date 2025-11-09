@@ -20,3 +20,17 @@ variable "user_data_path" {
   type    = string
   default = "user_data/glpi.sh"
 }
+variable "use_existing_ebs" {
+  type    = bool
+  default = false
+}
+
+variable "existing_volume_id" {
+  type    = string
+  default = ""
+}
+
+variable "device_name" {
+  type    = string
+  default = "/dev/xvdb"
+}

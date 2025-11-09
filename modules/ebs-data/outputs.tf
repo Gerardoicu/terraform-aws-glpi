@@ -1,7 +1,7 @@
 output "volume_id" {
-  value = aws_ebs_volume.data.id
+  value = local.data_volume_id
 }
 
 output "device_name" {
-  value = aws_volume_attachment.attach.device_name
+  value = var.device_name
 }
