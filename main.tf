@@ -30,6 +30,16 @@ module "ec2" {
   user_data            = file("${path.root}/${var.user_data_path}")
   root_volume_size_gb  = var.root_volume_size_gb
 }
+
+module "ebs_data" {
+  source            = "./modules/ebs-data"
+  name_prefix       = local.name_prefix
+  size_gb           = 10       # Capa Free Tier → total 30GB (20 root + 10 data)
+  instance_id       = module.ec2.instance_id
+  availability_zone = module.ec2.availability_zone
+}
+
+
 #  comprobar la persistencia los volumens
 # los dos escenarios de arquitectura
 # comprobar la versión glpi 11/ ver el chat

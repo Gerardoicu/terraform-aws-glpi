@@ -9,7 +9,7 @@ variable "project_name" {
 }
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3.micro"
 }
 # Free Tier en us-east-1
 variable "root_volume_size_gb" {
